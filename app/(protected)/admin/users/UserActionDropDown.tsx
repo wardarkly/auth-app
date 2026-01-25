@@ -2,7 +2,7 @@
 
 import { User } from "@/generated/prisma/client";
 import { useState } from "react";
-import UserManageDialog from "./UserManageDialog";
+import UserEditDialog from "./UserEditDialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +20,7 @@ export default function UserActionDropDown({ user }: { user: User }) {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   return (
     <>
-      <UserManageDialog
+      <UserEditDialog
         user={user}
         open={showEditDialog}
         onOpenChange={setShowEditDialog}

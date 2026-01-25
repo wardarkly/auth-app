@@ -9,7 +9,7 @@ import {
 import { User } from "@/generated/prisma/client";
 import { Dispatch, SetStateAction } from "react";
 
-export default function UserManageDialog({
+export default function UserEditDialog({
   user,
   open,
   onOpenChange,
