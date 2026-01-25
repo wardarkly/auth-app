@@ -22,16 +22,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { DataTablePagination } from "@/components/data-table-pagination";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
 import { UserPlus } from "lucide-react";
 import { UserFilter } from "./data-table-filter";
 import UserAddDialog from "./UserAddDialog";

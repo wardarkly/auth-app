@@ -5,11 +5,9 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { User } from "@/generated/prisma/client";
-import { Dispatch, SetStateAction, useState } from "react";
-import { z } from "zod";
+import { Dispatch, SetStateAction } from "react";
 
 export default function UserManageDialog({
   user,

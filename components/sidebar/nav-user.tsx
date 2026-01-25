@@ -25,8 +25,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { authClient } from "@/lib/auth-client";
-import { redirect } from "next/navigation";
 import SignOutButton from "@/components/auth/signout-button";
 
 export function NavUser({

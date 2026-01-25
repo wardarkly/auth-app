@@ -40,7 +40,6 @@ import {
   ShieldUser,
   User,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
@@ -60,7 +59,6 @@ export default function UserAddDialog({
 }) {
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const router = useRouter();
   const form = useForm<z.infer<typeof adminUserSchema>>({
     resolver: zodResolver(adminUserSchema),
     defaultValues: {
@@ -79,6 +77,7 @@ export default function UserAddDialog({
   });
   const onSubmit = async (values: z.infer<typeof adminUserSchema>) => {
     setIsLoading(true);
+    // ส่งข้อมูลไปที่ Server ผ่านทาง Action
     const result = await adminCreateUser(values);
     if (result.success) {
       toast.success("เพิ่มผู้ใช้สำเร็จ");

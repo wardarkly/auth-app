@@ -8,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { UserPlus } from "lucide-react";
 import { type Table } from "@tanstack/react-table";
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;

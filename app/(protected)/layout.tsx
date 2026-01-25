@@ -13,7 +13,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Toaster } from "@/components/ui/sonner";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (

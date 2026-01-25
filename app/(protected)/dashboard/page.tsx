@@ -1,25 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
 import { User } from "better-auth";
-import { AppSidebar } from "@/components/sidebar/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
 
 export default function HomePage() {
   const [user, setUser] = useState<User | null>(null);
@@ -33,11 +16,6 @@ export default function HomePage() {
     }
     loadSession();
   }, []);
-
-  async function handleLogout() {
-    await authClient.signOut();
-    window.location.href = "/";
-  }
 
   if (loading) {
     return (

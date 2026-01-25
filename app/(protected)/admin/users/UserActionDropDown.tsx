@@ -13,15 +13,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { UserPen } from "lucide-react";
+import UserDeleteDialog from "./UserDeleteDialog";
 
 export default function UserActionDropDown({ user }: { user: User }) {
   const [showEditDialog, setShowEditDialog] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   return (
     <>
       <UserManageDialog
         user={user}
         open={showEditDialog}
         onOpenChange={setShowEditDialog}
+      />
+      <UserDeleteDialog
+        user={user}
+        open={showDeleteDialog}
+        onOpenChange={setShowDeleteDialog}
       />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -48,7 +55,12 @@ export default function UserActionDropDown({ user }: { user: User }) {
             แก้ไขข้อมูล
           </DropdownMenuItem>
           <DropdownMenuItem>จัดการสิทธิ์</DropdownMenuItem>
-          <DropdownMenuItem variant="destructive">ลบ</DropdownMenuItem>
+          <DropdownMenuItem
+            variant="destructive"
+            onClick={() => setShowDeleteDialog(true)}
+          >
+            ลบ
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>

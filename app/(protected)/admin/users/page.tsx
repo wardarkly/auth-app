@@ -1,5 +1,3 @@
-import { prisma } from "@/lib/prisma";
-import { Button } from "@/components/ui/button";
 import UserTable from "@/app/(protected)/admin/users/UserTable";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";

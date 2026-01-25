@@ -80,3 +80,30 @@ export async function adminCreateUser(values: AdminUserFormValues) {
     };
   }
 }
+
+export async function adminDeleteUser(userId: string) {
+  // 1. ตรวจสอบสิทธิ์ Admin อีกครั้งที่ฝั่ง Server
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  if (session?.user.role !== "admin") {
+    throw new Error("Unauthorized: คุณไม่มีสิทธิ์ทำรายการนี้");
+  }
+  try {
+    const deletedUser = await auth.api.removeUser({
+      body: {
+        userId: userId, // required
+      },
+      // This endpoint requires session cookies.
+      headers: await headers(),
+    });
+    revalidatePath("/admin/users");
+    return { success: true };
+  } catch (error: any) {
+    return {
+      success: false,
+      code: error.code || "UNKNOWN_ERROR",
+      message: error.message,
+    };
+  }
+}

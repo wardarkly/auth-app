@@ -2,29 +2,9 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { User } from "@/generated/prisma/client";
-import { Button } from "@/components/ui/button";
-import UserManageDialog from "@/app/(protected)/admin/users/UserManageDialog";
-import {
-  UserCheck,
-  UserCog,
-  MoreHorizontal,
-  UserPen,
-  ArrowUpDown,
-  ArrowUpZA,
-  ArrowUpAZ,
-} from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { BadgeCustomColor } from "@/components/ui/badgeCustom";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DataTableColumnHeader } from "@/components/data-table-column-header";
-import { useState } from "react";
 import UserActionDropDown from "./UserActionDropDown";
 
 export const columns: ColumnDef<User>[] = [
@@ -118,22 +98,6 @@ export const columns: ColumnDef<User>[] = [
       );
     },
   },
-  //   {
-  //     accessorKey: "actions",
-  //     header: () => <div className="">Actions</div>,
-  //     cell: ({ row }) => {
-  //       const user = row.original;
-  //       return (
-  //         <div className="flex justify-center">
-  //           <UserManageDialog user={row.original}>
-  //             <Button size="icon-sm">
-  //               <UserCog />
-  //             </Button>
-  //           </UserManageDialog>
-  //         </div>
-  //       );
-  //     },
-  //   },
   {
     id: "actions",
     header: () => <div className="text-center">Actions</div>,

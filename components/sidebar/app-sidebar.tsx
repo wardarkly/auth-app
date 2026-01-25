@@ -2,13 +2,10 @@
 
 import * as React from "react";
 import {
-  AudioWaveform,
   BookOpen,
   Bot,
-  Command,
   Eclipse,
   Frame,
-  GalleryVerticalEnd,
   Map,
   PieChart,
   Settings2,
