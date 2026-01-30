@@ -25,6 +25,7 @@ model User {
   updatedAt       DateTime  @updatedAt
   sessions        Session[]
   accounts        Account[]
+  auditLogs       AuditLogs[]
   // ---- ข้อมูลจากการ SignUp ----
   position        String?
   department      String?
@@ -92,4 +93,16 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model AuditLogs {
+	id        String   @id @default(cuid())
+	userId    String
+	event     String
+	userAgent String?
+	ipAddress String?
+	createdAt DateTime @default(now())
+	// Optional: Add relation to User model
+	user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+	@@map("audit_logs")
 }

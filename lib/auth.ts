@@ -3,6 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "@/lib/prisma";
 import { admin, username } from "better-auth/plugins";
 import { APIError, createAuthMiddleware } from "better-auth/api";
+import { AuditLogsPlugin } from "./auth-audit-plugin";
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -28,6 +29,7 @@ export const auth = betterAuth({
       defaultRole: "user",
       adminRoles: ["admin"],
     }),
+    AuditLogsPlugin(),
   ],
   session: {
     expiresIn: 60 * 60 * 8, // 8 hours
